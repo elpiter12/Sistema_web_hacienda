@@ -1,6 +1,6 @@
 const { Model } = require('objection');
 const Knex = require('knex');
-const knexConfig = require('../../knexFile.js');
+const knexConfig = require('../../knexfile.js');
 const { DbErrors } = require('objection-db-errors');
 
 const knex = Knex(knexConfig.development)
