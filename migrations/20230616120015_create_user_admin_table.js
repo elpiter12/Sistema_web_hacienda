@@ -9,7 +9,6 @@ exports.up = function(knex) {
     table.string('nombre', 255);
     table.string('correo', 50);
     table.string('pass', 255);
-    table.text('token').nullable();
     table.datetime('creado').notNullable();
   });
 };

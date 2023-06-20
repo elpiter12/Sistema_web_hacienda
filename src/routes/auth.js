@@ -2,24 +2,24 @@ const express = require('express');
 const AdminUser = require('../models/AdminUser');
 const router = express.Router();
 const comparePass = require('../../lib/comparePass')
-const genToken = require('../../lib/genToken');
-const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken')
+const cookieParser = require('cookie-parser');
 
 
 router.post('/', async (req,res) => {
 	//geting the data user admin 
 	const {correo,pass} = req.body;
-	console.log(req.body);
+
 	if(!correo){
 		return res.status(400).send({
 			mensaje: "No Puedes enviar un correo vacio!",
-			err: true
+			err: "empy correo"
 		})
 	}
 	if(!pass){
 		return res.status(400).send({
 				mensaje: "No puedes enviar una contraseña vacia!",
-				err: true
+				err: "empy pass"
 			})
 	}
 
@@ -27,7 +27,7 @@ router.post('/', async (req,res) => {
 	const userFindend = await AdminUser.query().findOne({ correo: correo })
 	if(!userFindend){
 		console.log("El correo deproporcioando no exite en la db /auth post")
-		return res.status(404).send({
+		return	res.status(404).send({
 			mensaje: "usuario no encontrado",
 			err: true
 		})
@@ -37,17 +37,19 @@ router.post('/', async (req,res) => {
 
 	if(acceso){
 		// Generar el token de sesión
-		const token = jwt.sign({ id_admin: userFindend.id }, 'joan', { expiresIn: '1h' });
-
-		  // Establecer la cookie con el token
-		  res.cookie('token', token, { httpOnly: true });
-
-		  // Enviar una respuesta al cliente
-		 return res.json({token});
+		const admin = {
+			id: userFindend.id,
+			nombre: userFindend.nombre,
+			correo: userFindend.correo
+		}
+		const token = jwt.sign({ admin }, 'joan', { expiresIn: '1h' });
+		// Almacenar el token en una cookie
+		res.cookie('sessionToken', token, { httpOnly: true });
+		return res.json({token})
 	}
 	console.log("Aceso denegado");
 	console.log("POST / Auth");
-	return res.status(401).json({ mensaje: 'contraseña incorrecta',err:true });
+	return res.status(401).json({ mensaje: 'contraseña incorrecta',err:'badPass' });
 
 })
 

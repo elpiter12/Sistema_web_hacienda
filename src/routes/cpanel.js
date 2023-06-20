@@ -5,9 +5,9 @@ const router = express.Router();
 
 
 router.get('/', verificarToken , async (req,res) => {
-	//buscamos los datos del
-	console.log(req.user_admin);
-	res.render('cPanel/main');
+	const admin = req.user_admin.admin; //tomamos los datos del usuario admin
+	console.log(admin );
+	res.render('cPanel/main',{nombre: admin.nombre});
 	console.log("GET / cPanel");
 })
 
