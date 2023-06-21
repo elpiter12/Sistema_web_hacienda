@@ -1,10 +1,8 @@
 .footer-basic {
-  position: absolute;
-  bottom: 0;
+  height: 100%;
   padding:40px 0;
   background-color:#eee;
   color:#4b4c4d;
-  width: 100%;
 }
 
 .footer-basic ul {
