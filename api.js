@@ -5,6 +5,7 @@ router.use('/', require('./src/routes'));
 router.use('/login', require('./src/routes/login'));
 router.use('/auth', require('./src/routes/auth'));
 router.use('/cpanel', require('./src/routes/cpanel'));
+router.use('/nuevaHistoria', require('./src/routes/nuevaHistoria'));
 router.use('/error', require('./src/routes/error'));
 
 module.exports = router;

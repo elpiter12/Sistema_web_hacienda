@@ -3,6 +3,7 @@ const router = express.Router();
 require('dotenv').config();
 
 router.get('/',(req,res) => {
+
 	//iniciamo la vista principal
 	res.render('home',{
 		host: process.env.DB_DEV_HOST,

@@ -17,13 +17,33 @@
 </head>
 <body>
 	<div class="content-wrapper">
-    <!-- Tu contenido aquí -->
     <%- include('header.ejs'); %>
     
 	<section class="container">
-		<h2 class="text-center mb-5">CPanel administratio</h2>
-	
-		<table class="table table-sm table-striped table-bordered text-center" style="font-size: .8rem;">
+
+		<h2 class="text-center  my-5 h2 ">Hola <%= nombre %> Bienvenido</h2>
+
+		<form class="bg-light my-5 p-5 rounded" method="post" action="/nuevaHistoria" enctype="multipart/form-data">
+		 	<h2 class="h2 "> Crear una nueva noticia</h2>
+		      <div class="mb-3">
+		        <label for="postTitle" class="form-label">Título del Post:</label>
+		        <input type="text" class="form-control" id="postTitle" placeholder="Ingrese el título del post">
+		      </div>
+
+		      <div class="mb-3">
+		        <label for="postDescription" class="form-label">Descripción:</label>
+		        <textarea class="form-control" id="postDescription" rows="4" placeholder="Ingrese la descripción del post"></textarea>
+		      </div>
+
+		      <div class="mb-3">
+		             <label for="storyImages" class="form-label">Imágenes:</label>
+		             <input type="file" class="form-control" id="storyImages" multiple accept="image/*">
+		             <small class="form-text text-muted">Puede seleccionar múltiples imágenes.</small>
+		           </div>
+
+		      <button type="submit" class="btn btn-primary">Crear Historia</button>
+		    </form>
+		<!-- <table class="table table-sm table-striped table-bordered text-center" style="font-size: .8rem;">
 			<caption>Listado de todas las solicitudes recibidas</caption>
 		  <thead class="thead-dark">
 		    <tr>
@@ -57,7 +77,6 @@
 		        <a href="#" class="btn btn-primary btn-sm">Ver</a>
 		      </td>
 		    </tr>
-		    <!-- Resto de filas de la tabla -->
 		  </tbody>
 		  <tfoot>
 		    <tr class="bg-light">
@@ -79,7 +98,7 @@
 		      </td>
 		    </tr>
 		  </tfoot>
-		</table>
+		</table> -->
 	</section>
     </div>
     <footer>
