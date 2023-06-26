@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- My custom css -->
+  <link rel="stylesheet" type="text/css" href="info.css">
+  <link rel="stylesheet" type="text/css" href="footer.css">
+  <link rel="stylesheet" type="text/css" href="all-btn.css">
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <link rel="stylesheet" type="text/css" href="nosotros.css">
+  <!-- END My custom css -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js'></script>
+  <link href='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css' rel='stylesheet' />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+  <title>Sistema De patentes </title>
+</head>
+<body>
+  <div class="content-wrapper">
+    <%- include('../views/header.ejs'); %>
+
+    <div class="about-section">
+      <h2>Quiénes somos</h2>
+      <p>Somos una empresa comprometida con...</p>
+      
+      <h3>Misión</h3>
+      <p>Nuestra misión es...</p>
+      
+      <h3>Visión</h3>
+      <p>Nuestra visión es...</p>
+      
+      <h3>Valores</h3>
+      <ul>
+        <li>Valor 1</li>
+        <li>Valor 2</li>
+        <li>Valor 3</li>
+        <!-- Agrega más valores aquí -->
+      </ul>
+    </div>
+
+  </div>
+    <footer>
+        <%- include('../views/footer.ejs'); %>
+    </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
