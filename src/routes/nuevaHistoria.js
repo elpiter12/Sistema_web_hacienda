@@ -1,20 +1,84 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
+const Noticia = require('../models/Noticia');
+const verificarToken = require('../../lib/verificarToken')
+const convertirFecha = require('../../lib/convertir_fecha')
+const path = require('path');
+
 require('dotenv').config();
 // Crear una instancia de multer con la configuración deseada
-const upload = multer({ dest: 'uploads/' }); // Directorio donde se guardarán las imágenes
-
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/');
+  },
+  filename: (req, file, cb) => {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    cb(null, uniqueSuffix + path.extname(file.originalname));
+  }
+});
+const upload = multer({ storage: storage });
 
 // Ruta para la carga de imágenes y datos del formulario
-router.post('/', upload.single('imagen'), (req, res) => {
+router.post('/', verificarToken ,upload.single('imagen'), async (req, res) => {
+  const {titulo,des} = req.body;
   // Manejar los datos y la imagen aquí
-  const titulo = req.body.titulo;
-  const descripcion = req.body.descripcion;
-  const imagen = req.file; // Objeto que contiene la información de la imagen cargada
+  const img = req.file; // Objeto que contiene la información de la imagen cargada
 
-  // Realizar las acciones necesarias con los datos recibidos
-  console.log("RUTA DE RECEPCION DE HISTORIA FINALIZADA")
-  res.send('Datos y imagen recibidos correctamente');
+  const noticiaToSave = { titulo,des,img : req.file.filename}
+
+  try{
+    const saveNoticia = await Noticia.query().insert(noticiaToSave)
+
+    console.log("NOTICA GUARDADA")
+    return res.redirect('/nuevaHistoria?error=false&mensaje=noticias_creada');
+
+  }catch(e){
+    console.log(e)
+    res.render(error);
+  }
 });
+router.get('/' , verificarToken ,async (req, res) => {
+  const admin = req.user_admin.admin; //tomamos los datos del usuario admin
+  //consultamos todos las noticias
+  try{
+    const allNoticias = await Noticia.query();
+  
+    //formateando la fecha de creado de las noticias a una fecha mas entendible
+    const noticiasFormateadas =  allNoticias.map((noticia) =>{
+      noticia.creado = convertirFecha(noticia.creado);
+      return noticia
+    })
+   
+    res.render('cPanel/noticias',{
+      nombre : admin.nombre,
+      noticias: noticiasFormateadas
+    });
+
+  }catch(e){
+    return res.send({error:e, mensaje:"ERROR INESPERADO!"})
+  }
+});
+
+router.get('/preview' , verificarToken , async (req,res)=>{
+  const {id,acction} = req.query;
+  const admin = req.user_admin.admin; //tomamos los datos del usuario admin
+
+
+  if(id != undefined && acction == 'ver'){
+
+    //buscamos Solo una noticia para mostrarla
+    try{
+      const noticia = await Noticia.query().findById(id);
+      noticia.creado = convertirFecha(noticia.creado);
+      console.log(noticia)
+      return res.render('cPanel/noticia-preview',{noticia,nombre:admin.nombre})
+    }catch(e){
+      return res.send({error: true, mensaje: "noticia no encontrada."})
+    }
+  }
+});
+
+
+
 module.exports = router;	

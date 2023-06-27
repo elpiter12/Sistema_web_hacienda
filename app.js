@@ -16,10 +16,11 @@ app.use(cors());
 app.enable('trust proxy'); 
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/', require('./api'));
-app.set('views', path.join(__dirname, 'src/views'));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.set('views', path.join(__dirname, 'src/views'));
 app.set('view engine', 'ejs');
+app.use('/', require('./api'));
 app.use(function(req, res, next) {
   const host = req.protocol + '://' + req.get('host');
   res.render('404',{host});

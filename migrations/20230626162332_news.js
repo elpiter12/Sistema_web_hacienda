@@ -3,12 +3,11 @@
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-  
-  return knex.schema.createTable('user_admin', table => {
+    return knex.schema.createTable('news', table => {
     table.increments('id').primary();
-    table.string('nombre', 255);
-    table.string('correo', 50);
-    table.string('pass', 255);
+    table.string('titulo', 255);
+    table.text('des');
+    table.binary('img');
     table.datetime('creado').notNullable().defaultTo(knex.fn.now());
   });
 };
@@ -18,5 +17,6 @@ exports.up = function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-  return knex.schema.dropTableIfExists('user_admin');
+  return knex.schema.dropTableIfExists('news');
+  
 };

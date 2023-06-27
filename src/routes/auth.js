@@ -34,6 +34,7 @@ router.post('/', async (req,res) => {
 	}
 
 	const acceso = await comparePass(pass,userFindend.pass);
+	console.log(acceso);
 
 	if(acceso){
 		// Generar el token de sesión
@@ -49,7 +50,10 @@ router.post('/', async (req,res) => {
 	}
 	console.log("Aceso denegado");
 	console.log("POST / Auth");
-	return res.status(401).json({ mensaje: 'contraseña incorrecta',err:'badPass' });
+	return	res.status(404).send({
+			mensaje: "Clave invalida",
+			err: true
+	})
 
 })
 
