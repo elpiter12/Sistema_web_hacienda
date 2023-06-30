@@ -6,7 +6,6 @@
 	<title>Error</title>
 </head>
 <body>
-	<h2><%= mensaje %></h2>
 <script type="text/javascript">
 	document.addEventListener('DOMContentLoaded', function() {
 	   // Obtener la cadena de consulta de la URL
@@ -17,9 +16,9 @@
 	   // Obtener el valor de un parámetro específico por su nombre
 	   const mensaje = urlParams.get('mensaje');
 	   const error = urlParams.get('error');
-	   if(!error){
+	   if(!error && mensaje != undefined){
 	   	Swal.fire({
-	   	  title: 'MENSAJE ENVIADO!',
+	   	  title: 'ME!',
 	   	  text: 'Mensajes Enviado Correctamente! :) Nos pondremos en contacto contigo lo mas pronto posible',
 	   	  icon: 'success',
 	   	  confirmButtonText: 'OK!'

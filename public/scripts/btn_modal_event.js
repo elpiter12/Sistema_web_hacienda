@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
    // Obtener el valor de un parámetro específico por su nombre
    const mensaje = urlParams.get('mensaje');
    const error = urlParams.get('error');
-   if(!error){
+   if(!error && mensaje != undefined){
    	Swal.fire({
    	  title: 'MENSAJE ENVIADO!',
    	  text: 'Mensajes Enviado Correctamente! :) Nos pondremos en contacto contigo lo mas pronto posible',

@@ -3,11 +3,12 @@ const router = express.Router();
 const multer = require('multer');
 const Noticia = require('../models/Noticia');
 const convertirFecha = require('../../lib/convertir_fecha')
+
 const path = require('path');
 
 router.get('/' , async (req, res) => {
   const noticiaId = req.query.id;
-      console.log(noticiaId)
+  console.log(noticiaId)
 
   try{
     if(noticiaId == undefined){
