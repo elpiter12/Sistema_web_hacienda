@@ -7,6 +7,11 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+.logo{
+    background-image: url(img/logo.jpg);
+        width: 70vh;
+    height: 50vh;
+}
 .p_about{
 	position: relative;
 	right: ;
@@ -28,4 +33,30 @@
     height: 20rem;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+
+.opening-hours {
+  text-align: center;
+  margin: 20px;
+}
+
+.opening-hours h2 {
+  font-size: 24px;
+}
+
+.opening-hours-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.opening-hours-list li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.opening-hours-list .day {
+  font-weight: bold;
 }

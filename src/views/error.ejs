@@ -8,7 +8,32 @@
 <body>
 	<h2><%= mensaje %></h2>
 <script type="text/javascript">
-	alert("Error! ALGO PASO");
+	document.addEventListener('DOMContentLoaded', function() {
+	   // Obtener la cadena de consulta de la URL
+	   const queryString = window.location.search;
+	   // Crear una instancia de URLSearchParams para analizar la cadena de consulta
+	   const urlParams = new URLSearchParams(queryString);
+
+	   // Obtener el valor de un parámetro específico por su nombre
+	   const mensaje = urlParams.get('mensaje');
+	   const error = urlParams.get('error');
+	   if(!error){
+	   	Swal.fire({
+	   	  title: 'MENSAJE ENVIADO!',
+	   	  text: 'Mensajes Enviado Correctamente! :) Nos pondremos en contacto contigo lo mas pronto posible',
+	   	  icon: 'success',
+	   	  confirmButtonText: 'OK!'
+	   	});
+	   }else{
+	   	Swal.fire({
+	   	  title: 'Algo malo paso!',
+	   	  text:mensaje ,
+	   	  icon: 'error',
+	   	  confirmButtonText: 'ok :('
+	   	});
+	   }
+
+	});
 </script>
 </body>
 </html>

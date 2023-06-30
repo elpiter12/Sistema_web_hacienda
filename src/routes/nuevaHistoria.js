@@ -31,7 +31,7 @@ router.post('/', verificarToken ,upload.single('imagen'), async (req, res) => {
     const saveNoticia = await Noticia.query().insert(noticiaToSave)
 
     console.log("NOTICA GUARDADA")
-    return res.redirect('/nuevaHistoria?error=false&mensaje=noticias_creada');
+    return res.redirect('/nuevaHistoria?error=false&mensaje=Noticia Creada!');
 
   }catch(e){
     console.log(e)
@@ -71,14 +71,27 @@ router.get('/preview' , verificarToken , async (req,res)=>{
     try{
       const noticia = await Noticia.query().findById(id);
       noticia.creado = convertirFecha(noticia.creado);
-      console.log(noticia)
       return res.render('cPanel/noticia-preview',{noticia,nombre:admin.nombre})
     }catch(e){
-      return res.send({error: true, mensaje: "noticia no encontrada."})
+         return res.send({error:e, mensaje:"Noticia no encontrda"})
     }
   }
 });
+// This is bad practice, but i not have a app fortend for do request
+router.get('/delete' ,  verificarToken , async (req,res) =>{
+  const {id,acction} = req.query;
+  if(id && acction == 'eliminar'){
+    try{
+      const deleted = await Noticia.query().deleteById(id);
+      res.redirect('/nuevaHistoria?sucess=true');
+    }catch(err){
+      console.log(err)
+    }
 
-
+  }else{
+    console.log("No existe id a eliminar")
+    //llamamos a la vista de mostrar mensaje o erroes
+  }
+});
 
 module.exports = router;	
