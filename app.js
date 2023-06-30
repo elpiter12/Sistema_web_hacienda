@@ -6,7 +6,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 dotenv.config();
-const PORT_DEV = process.env.PORT_DEV || 8080;
+const PORT = process.env.PORT || 8080;
 const DB_DEV_HOST = process.env.DB_DEV_HOST || 'localhost';
 //creando una instancia de express
 const app = express();
@@ -25,11 +25,11 @@ app.use(function(req, res, next) {
   const host = req.protocol + '://' + req.get('host');
   res.render('404',{host});
 });
-console.log(process.env.PORT_DEV);
+console.log(process.env.PORT);
 console.log(process.env.DB_DEV_HOST);
 console.log(process.env.DB_DEV_PORT);
 console.log(process.env.DB_DEV_USER);
 console.log(process.env.DB_DEV_PASS);
 console.log(process.env.DB_DEV_NAME);
 
-app.listen(PORT_DEV, () => console.log(`servicios levantados!${PORT_DEV}`));
+app.listen(PORT, () => console.log(`servicios levantados!`));
