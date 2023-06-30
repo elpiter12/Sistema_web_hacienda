@@ -10,6 +10,16 @@
 			// Obtener el valor de un parámetro específico por su nombre
 			const mensaje = urlParams.get('mensaje');
 			const error = urlParams.get('error');
+			const sucess = urlParams.get('sucess');
+			if(sucess){
+				Swal.fire({
+				  title: 'Noticia Eliminada!',
+				  text: 'Noticia borrada con exito!',
+				  icon: 'success',
+				  confirmButtonText: 'Ok Listo!'
+				});
+			}
+
 			if(error == 'true'){
 				Swal.fire({
 				  title: 'Error',

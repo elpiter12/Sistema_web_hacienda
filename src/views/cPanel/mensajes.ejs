@@ -14,30 +14,36 @@
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
 
-	<title>cPanel Noticias</title>
+	<title>cPanel Mensajes</title>
 </head>
 <body>
 	<div class="content-wrapper">
     <%- include('header.ejs'); %>
 	<section class="container">
-		<h2 class="text-center  my-5 h2 ">Todas las noticias escritas por <%= nombre %> </h2>
-
+	
 		 <table class="table table-sm table-striped table-bordered text-center" style="font-size: .8rem;">
 			<caption>Noticias Subidas</caption>
 		  <thead class="thead-dark">
 		    <tr>
 		      <th scope="col">ID</th>
-		      <th scope="col">Titulo</th>
-		      <th scope="col">escrita el</th>
-		      <th scope="col">Acciones</th>
+		      <th scope="col">Nombres</th>
+		      <th scope="col">Apellidos</th>
+		      <th scope="col">Mensaje</th>
+		      <th scope="col">correo</th>
+		      <th scope="col">telefono</th>
+		      <th scope="col">fecha recibida</th>
 		    </tr>
 		  </thead>
 		  <tbody>
-		    <% for (let i = 0; i < noticias.length; i++) { %>
+		    <% for (let i = 0; i < mensajes.length; i++) { %>
 		    	<tr>
-		    	  <td> <%= noticias[i].id %> </td>
-		    	  <td> <%= noticias[i].titulo %> </td>
-		    	  <td> <%= noticias[i].creado %> </td>
+		    	  <td> <%= mensajes[i].id %> </td>
+		    	  <td> <%= mensajes[i].nombres_usuarios %> </td>
+		    	  <td> <%= mensajes[i].apellidos_usuarios %> </td>
+		    	  <td> <%= mensajes[i].correo_usuario %> </td>
+		    	  <td> <%= mensajes[i].telefono %> </td>
+		    	  <td> <%= mensajes[i].mensaje %> </td>
+		    	  <td> <%= mensajes[i].creado %> </td>
 		    	  <td>
 		    	    <a href="/nuevaHistoria/preview?id=<%= noticias[i].id %>&acction=editar" class="btn btn-warning btn-sm ver-detalles" ><i class="bi bi-pencil"></i></a>
 		    	    <a href="/nuevaHistoria/delete?id=<%= noticias[i].id %>&acction=eliminar" class="btn btn-danger btn-sm ver-detalles" ><i class="bi bi-trash"></i></a>

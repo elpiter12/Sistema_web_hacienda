@@ -1,0 +1,33 @@
+<div class="container">
+	<form id="form_contactar" class="bg-light my-5 p-5 rounded" method="post" action="/contact">
+		<h2 class="h2 text-center ">Contacta con nosotros!</h2>
+		<div class="mb-3">
+			<label for="nombres" class="form-label">Nombres</label>
+			<input required="true"  name="nombres" type="text" class="form-control" id="nombres" placeholder="Jose Jimenez">
+			<div class="form-text">Ingresa tus dos primeros nombres</div>
+		</div>
+		<div class="mb-3">
+			<label for="apellidos" class="form-label">Apellidos</label>
+			<input required="true"  name="apellidos" type="text" class="form-control" id="apellidos" placeholder="Ortegano Rocha">
+					<div class="form-text">Por favor ingresa tus dos apellidos.</div>
+		</div>
+		<div class="mb-3">
+		<label for="email" class="form-label">Correo Electrónico</label>
+		<input required="true"  name="email" type="email" class="form-control" id="email" placeholder="Ejemplo@gmail.com">
+		<div class="form-text">Campo Obligatorio (*)</div>
+		</div>
+		<div class="mb-3">
+			<label for="tlf" class="form-label">Teléfono</label>
+			<input  name="tlf" type="text" class="form-control" id="tlf" placeholder="Numero de telefono">
+			<div class="form-text">Si Prefieres podemos contactarte por Vía WhatsApp. Este campo es opcional.</div>
+		</div>
+		<div class="mb-3">
+		<label for="mensaje" class="form-label">Déjanos un mensaje!</label>
+		<textarea required="true" name="mensaje" class="form-control" id="mensaje" rows="4" placeholder="Hola! ¿Que tal? les escribo por..."></textarea>
+		</div>
+		<div class="d-grid gap-2">
+		  <input class="btn btn-outline-info" type="submit" form="form_contactar">Enviar</input>
+		</div>
+
+	</form>
+</div>
