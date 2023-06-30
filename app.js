@@ -25,5 +25,5 @@ app.use(function(req, res, next) {
   const host = req.protocol + '://' + req.get('host');
   res.render('404',{host});
 });
-
+console.log(process.env.VARIABLE);
 app.listen(PORT_DEV, () => console.log(`Sistema corriendo en http://${DB_DEV_HOST}:${PORT_DEV}`));
