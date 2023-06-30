@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- My custom css -->
+  <link rel="stylesheet" type="text/css" href="footer.css">
+  <link rel="stylesheet" type="text/css" href="all-btn.css">
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <!-- END My custom css -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <title>Noticia</title>
+</head>
+<body>
+  <div class="content-wrapper">
+      <%- include('header.ejs'); %>
+    <h2 class="text-center  my-5 h2 ">Mensaje</h2>
+
+    <section class="container bg-light rounded my-5 py-5">
+      <h1 class="h1 text-center mt-5">Mensaje de <%= mensaje.nombres_usuarios %>  <%= mensaje.apellidos_usuarios %> </h1>
+     <h2 class="h2">Email:<%= mensaje.correo_usuario %> </h2>
+      <p class="text-left color-light mt-2"><%= mensaje.mensaje%></p>
+      <span class="badge rounded-pill text-bg-secondary p-2">Recivido el <%=mensaje.creado %></span>
+      <span class="badge rounded-pill text-bg-secondary p-2 ">Numero de telefono <%= mensaje.telefono%> </span>
+      <div class="d-grid gap-2 my-5">
+        <a class="btn btn-outline-info" href="/contact/bandeja_entrada">Ok, Leído</a>
+      </div>
+
+    </section>
+
+      <footer>
+          <%- include('footer.ejs'); %>
+      </footer>
+   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
