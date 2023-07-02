@@ -94,4 +94,5 @@ router.get('/delete' ,  verificarToken , async (req,res) =>{
   }
 });
 
+
 module.exports = router;	

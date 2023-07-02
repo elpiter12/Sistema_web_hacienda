@@ -8,7 +8,7 @@ router.get('/', verificarToken , async (req,res) => {
 	const admin = req.user_admin.admin; //tomamos los datos del usuario admin
 
 	res.render('cPanel/main',{nombre: admin.nombre});
-	console.log("GET / cPanel");
+	console.log("GET / cPanel/main");
 })
 
 

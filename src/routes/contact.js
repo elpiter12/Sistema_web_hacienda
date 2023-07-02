@@ -18,8 +18,6 @@ router.get('/bandeja_entrada',verificarToken, async (req,res ) => {
 	//Devolvemos todos los mensajes
 	const mensajes = await Mensajes.query().select('*').select(raw("LEFT(mensaje, 15) AS mensaje_resumido"));
 
-	
-	console.log(nombre)
 	return res.render('cPanel/mensajes',{mensajes,nombre});
 })
 

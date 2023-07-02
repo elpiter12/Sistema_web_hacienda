@@ -5,21 +5,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- My custom css -->
 	<link rel="stylesheet" type="text/css" href="info.css">
-	<link rel="stylesheet" type="text/css" href="footer.css">
 	<link rel="stylesheet" type="text/css" href="all-btn.css">
 	<link rel="stylesheet" type="text/css" href="main.css">
 	<!-- END My custom css -->
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
-
-	<title>cPanel Mensajes</title>
+	<title>cPanel</title>
 </head>
 <body>
 	<div class="content-wrapper">
-    <%- include('header.ejs'); %>
-	<section class="container">
+	    <%- include('header.ejs'); %>
+	    <section class="container">
 		<h2 class="h2 my-5 text-center">Bandeja de entrada</h2>
 		 <table class="overflow-auto my-5 table table-sm table-striped table-bordered text-center" style="font-size: .8rem;">
 			<caption>Mensajes recividos</caption>
@@ -52,17 +52,12 @@
 		    <% } %>
 		  
 		  </tbody>
-		  <tfoot>
-		    <tr class="bg-light">
-		    </tr>
-		  </tfoot>
 		</table>
-	</section>
+		</section>
     </div>
-    <footer>
-       	<%- include('footer.ejs'); %>
-   	</footer>
+    <%- include('footer.ejs'); %>
+
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="cPanel/scripts/alertas.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 </html>

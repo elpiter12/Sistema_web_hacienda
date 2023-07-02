@@ -7,6 +7,9 @@ body {
   flex-direction: column;
 }
 
+p{
+  line-height: 2;
+}
 .content-wrapper {
   flex: 1;
 }
@@ -16,10 +19,11 @@ body {
 }
 /*IMAGENES*/
 #img_portada_main{
-    background-image: url(img/29.jpg);
+    background-image: url(img/header.jpg);
     background-attachment: fixed;
-    background-position: right;
     background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     height: 60vh;
     display: flex;
     position: relative;
@@ -33,7 +37,7 @@ body {
 }
 .degradado{
 
-  background: linear-gradient(272deg, black, transparent);
+  background: linear-gradient(124deg, #000, transparent);
   width: 100%;
   display: flex;
     flex-direction: column;
