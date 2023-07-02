@@ -18,6 +18,14 @@
 
   <div class="container-sm mt-5 py-5 ">
     <h2>Iniciar seccion</h2>
+    <% if (mensaje != '') { %>
+      <div class="container mt-5">
+        <div class="alert alert-danger" role="alert">
+         <%= mensaje %>
+        </div>
+      </div>
+    <% } %>
+
     
     <form id="form_login">
       <div class="mb-3">

@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- My custom css -->
 	<link rel="stylesheet" type="text/css" href="info.css">
-	<link rel="stylesheet" type="text/css" href="footer.css">
+
 	<link rel="stylesheet" type="text/css" href="all-btn.css">
 	<link rel="stylesheet" type="text/css" href="main.css">
 	<!-- END My custom css -->
@@ -21,6 +21,8 @@
     <%- include('header.ejs'); %>
 	<section class="container">
 		<h2 class="text-center  my-5 h2 ">Todas las noticias escritas por <%= nombre %> </h2>
+
+		<a href="/nuevaHistoria/new_noticia">Nueva noticia</a>
 
 		 <table class="table table-sm table-striped table-bordered text-center" style="font-size: .8rem;">
 			<caption>Noticias Subidas</caption>

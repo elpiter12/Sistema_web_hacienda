@@ -1,10 +1,16 @@
 #btn-discover{
-	color: #eee;
-	border: 1px solid #000;
+	color: #444;
+	border: 1px solid #aaa;
 	background-color: #0003;
 	text-decoration: none;
 	border-radius: 50px;
 	padding: 1rem 2rem;
+    transition-duration: .5s;
+    transition-property: background;
+    transition-delay: ease;
+}
+#btn-discover:hover{
+    background-color: #1b2;
 }
 
 .cta {

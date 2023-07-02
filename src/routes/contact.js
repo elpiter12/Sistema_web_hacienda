@@ -14,12 +14,10 @@ router.get('/' , async (req,res) =>{
 });
 
 router.get('/bandeja_entrada',verificarToken, async (req,res ) => {
-	const nombre = req.user_admin.nombre; //tomamos los datos del usuario admin
+	const nombre = req.user_admin.admin.nombre; //tomamos los datos del usuario admin
 	//Devolvemos todos los mensajes
 	const mensajes = await Mensajes.query().select('*').select(raw("LEFT(mensaje, 15) AS mensaje_resumido"));
 
-	
-	console.log(mensajes)
 	return res.render('cPanel/mensajes',{mensajes,nombre});
 })
 
@@ -37,7 +35,7 @@ router.get('/bandeja_entrada/delete',verificarToken, async (req,res ) => {
 })
 
 router.get('/bandeja_entrada/ver',verificarToken, async (req,res ) => {
-	const nombre = req.user_admin.nombre; //tomamos los datos del usuario admin
+	const nombre = req.user_admin.admin.nombre; //tomamos los datos del usuario admin
 
 	const {id} = req.query;
 	try{
@@ -54,7 +52,7 @@ router.get('/bandeja_entrada/ver',verificarToken, async (req,res ) => {
 
 router.post('/' , async (req,res) => {
 	let {nombres,apellidos,email,tlf,mensaje} = req.body;
-	if(tlf == undefined){
+	if(tlf == undefined || tlf == ''){
 		tlf = "sin numero de teléfono"
 	}
 		console.log("RENDIRZANDO LA VISTGA DEMENSAJE ENVIADO")
