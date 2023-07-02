@@ -5,16 +5,16 @@ const verificarToken = require('../../lib/verificarToken')
 
 
 router.get('/',verificarToken, async (req,res) => {
-	const nombre = req.user_admin.nombre; //tomamos los datos del usuario admin
+	const nombre = req.user_admin.admin.nombre; //tomamos los datos del usuario admin
 
 	//geting the data user admin 
 	const allAdmins = await AdminUser.query().select('id','nombre','correo','creado');
-	console.log(allAdmins);
-	res.render('cPanel/admins',{allAdmins ,nombre});
+	console.log(nombre);
+	res.render('cPanel/admins',{allAdmins , nombre});
 })
 
 router.get('/new',verificarToken, async (req,res) => {
-	const nombre = req.user_admin.nombre; //tomamos los datos del usuario admin
+	const nombre = req.user_admin.admin.nombre; //tomamos los datos del usuario admin
 	res.render('cPanel/new_admin',{nombre});
 });
 

@@ -16,21 +16,29 @@ body {
 }
 /*IMAGENES*/
 #img_portada_main{
-  background-image: url('img/logo.jpg');
-  background-attachment: fixed;
-  background-position: right;
-  background-repeat: no-repeat;
-  height: 60vh;
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  margin-left: 2rem;
+    background-image: url(img/29.jpg);
+    background-attachment: fixed;
+    background-position: right;
+    background-repeat: no-repeat;
+    height: 60vh;
+    display: flex;
+    position: relative;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-direction: row;
 }
 #img_portada_main > p {
   width: 50%;
 
+}
+.degradado{
+
+  background: linear-gradient(272deg, black, transparent);
+  width: 100%;
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
   .card-grid {
