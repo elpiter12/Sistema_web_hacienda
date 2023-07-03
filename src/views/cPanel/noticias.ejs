@@ -22,7 +22,7 @@
 	<section class="container">
 		<h2 class="text-center  my-5 h2 ">Todas las noticias escritas por <%= nombre %> </h2>
 
-		<a href="/nuevaHistoria/new_noticia">Nueva noticia</a>
+		<a href="/nuevaHistoria/new_noticia" type="button" class="btn btn-primary my-5">Redactar una noticia</a>
 
 		 <table class="table table-sm table-striped table-bordered text-center" style="font-size: .8rem;">
 			<caption>Noticias Subidas</caption>
@@ -41,7 +41,7 @@
 		    	  <td> <%= noticias[i].titulo %> </td>
 		    	  <td> <%= noticias[i].creado %> </td>
 		    	  <td>
-		    	    <a href="/nuevaHistoria/preview?id=<%= noticias[i].id %>&acction=editar" class="btn btn-warning btn-sm ver-detalles" ><i class="bi bi-pencil"></i></a>
+
 		    	    <a href="/nuevaHistoria/delete?id=<%= noticias[i].id %>&acction=eliminar" class="btn btn-danger btn-sm ver-detalles" ><i class="bi bi-trash"></i></a>
 		    	    <a href="/nuevaHistoria/preview?id=<%= noticias[i].id %>&acction=ver" class="btn btn-primary btn-sm ver-detalles"><i class="bi bi-eye"></i> </a>
 		    	  </td>

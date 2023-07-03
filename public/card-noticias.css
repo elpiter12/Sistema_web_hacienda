@@ -12,7 +12,7 @@
 .card-details {
  color: black;
  height: 100%;
- gap: .5em;
+ gap: 1em;
  display: grid;
  place-content: center;
 }
@@ -40,7 +40,8 @@
 
 /*Text*/
 .text-title {
- font-size: 1.5em;
+ font-size: 15pt;
+ text-transform: uppercase;
  font-weight: bold;
 }
 
@@ -59,5 +60,5 @@
 .tarjeta-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Crea columnas automáticamente según el tamaño mínimo y máximo de 200px */
-  gap: 10px; /* Espacio entre las tarjetas */
+  gap: 20px; /* Espacio entre las tarjetas */
 }

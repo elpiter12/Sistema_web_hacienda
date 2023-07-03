@@ -19,18 +19,16 @@
 <body>
   <div class="content-wrapper">
     <%- include('header.ejs'); %>
-    <h2 class="h2 text-center my-5">Noticia</h2>
 
-    <section class="container bg-light rounded my-5 py-5">
+
+    <section class="container my-5 py-5">
       <h1 class="h1 text-center mt-5"> <%= noticia.titulo %> </h1>
-      <img class="rounded float-start img-fluid" src="/uploads/<%= noticia.img %>">
-      <p class="text-left color-light mt-2"><%= noticia.des%></p>
-      <span class="badge rounded-pill text-bg-secondary p-2">Noticia creada el <%= noticia.creado%></span>
+      <img class="rounded mt-5" src="/uploads/<%= noticia.img %>">
+      <p class="text-left text-ligth my-5"><%= noticia.des%></p>
+      <p class="rounded text-light bg-info col-12">Noticia creada el <%= noticia.creado%></p>
     </section>
 
   </div>
-  <%- include('../views/nosotros.ejs'); %>
-  <%- include('../views/horarios.ejs'); %>
     <footer>
         <%- include('../views/footer.ejs'); %>
     </footer>

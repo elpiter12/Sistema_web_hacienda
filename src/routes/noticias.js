@@ -8,7 +8,7 @@ const path = require('path');
 
 router.get('/' , async (req, res) => {
   const noticiaId = req.query.id;
-  console.log(noticiaId)
+
 
   try{
     if(noticiaId == undefined){
