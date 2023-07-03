@@ -1,20 +1,46 @@
-<form class="bg-light my-5 p-5 rounded" method="post" action="/nuevaHistoria" enctype="multipart/form-data">
-	 	<h2 class="h2 "> Crear una nueva noticia</h2>
-	      <div class="mb-3">
-	        <label for="postTitle" class="form-label">Título del Post:</label>
-	        <input required="true"  name="titulo" type="text" class="form-control" id="postTitle" placeholder="Ingrese el título del post">
-	      </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- My custom css -->
 
-	      <div class="mb-3">
-	        <label for="postDescription" class="form-label">Descripción:</label>
-	        <textarea required="true" name="des" class="form-control" id="postDescription" rows="4" placeholder="Ingrese la descripción del post"></textarea>
-	      </div>
+	<!-- END My custom css -->
 
-	      <div class="mb-3">
-	             <label for="storyImages" class="form-label">Imágenes:</label>
-	             <input required="true" name="imagen" type="file" class="form-control" id="storyImages"accept="image/*">
-	             <small class="form-text text-muted">Puede seleccionar múltiples imágenes.</small>
-	           </div>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+	<title>cPanel</title>
+</head>
+<body>
+	<div class="content-wrapper">
+	    <%- include('header.ejs'); %>
+	    
+	    <form class="bg-light my-5 p-5 rounded" method="post" action="/nuevaHistoria" enctype="multipart/form-data">
+	    	 	<h2 class="h2 "> Crear una nueva noticia</h2>
+	    	      <div class="mb-3">
+	    	        <label for="postTitle" class="form-label">Título del Post:</label>
+	    	        <input required="true"  name="titulo" type="text" class="form-control" id="postTitle" placeholder="Ingrese el título del post">
+	    	      </div>
 
-	      <button type="submit" class="btn btn-primary">Crear Historia</button>
-</form>
+	    	      <div class="mb-3">
+	    	        <label for="postDescription" class="form-label">Descripción:</label>
+	    	        <textarea required="true" name="des" class="form-control" id="postDescription" rows="4" placeholder="Ingrese la descripción del post"></textarea>
+	    	      </div>
+
+	    	      <div class="mb-3">
+	    	             <label for="storyImages" class="form-label">Imágenes:</label>
+	    	             <input required="true" name="imagen" type="file" class="form-control" id="storyImages"accept="image/*">
+	    	             <small class="form-text text-muted">Puede seleccionar múltiples imágenes.</small>
+	    	           </div>
+
+	    	      <button type="submit" class="btn btn-primary">Crear Historia</button>
+	    </form>
+	</div>
+	<%- include('footer.ejs'); %>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>
+

@@ -59,6 +59,14 @@ router.get('/' , verificarToken ,async (req, res) => {
     return res.send({error:e, mensaje:"ERROR INESPERADO!"})
   }
 });
+router.get('/new_noticia' , verificarToken ,async (req, res) => {
+  const admin = req.user_admin.admin; //tomamos los datos del usuario admin
+  //consultamos todos las noticias
+    res.render('cPanel/new_noticia',{
+      nombre : admin.nombre
+    });
+});
+
 
 router.get('/preview' , verificarToken , async (req,res)=>{
   const {id,acction} = req.query;
