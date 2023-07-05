@@ -16,8 +16,11 @@ router.get('/' , async (req,res) =>{
 router.get('/bandeja_entrada',verificarToken, async (req,res ) => {
 	const nombre = req.user_admin.admin.nombre; //tomamos los datos del usuario admin
 	//Devolvemos todos los mensajes
-	const mensajes = await Mensajes.query().select('*').select(raw("LEFT(mensaje, 15) AS mensaje_resumido"));
-
+	let mensajes = await Mensajes.query().select('*').select(raw("LEFT(mensaje, 15) AS mensaje_resumido"));
+	mensajes.forEach((mensaje)=>{
+		mensaje.creado = convertirFecha(mensaje.creado)
+	})
+	console.log(mensajes)
 	return res.render('cPanel/mensajes',{mensajes,nombre});
 })
 

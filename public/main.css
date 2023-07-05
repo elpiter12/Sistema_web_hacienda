@@ -23,7 +23,7 @@ p{
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: bottom;
     height: 60vh;
     display: flex;
     position: relative;
@@ -37,7 +37,7 @@ p{
 }
 .degradado{
 
-  background: linear-gradient(124deg, #000, transparent);
+  background: linear-gradient(124deg, #0009, transparent);
   width: 100%;
   display: flex;
     flex-direction: column;

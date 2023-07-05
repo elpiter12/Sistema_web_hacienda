@@ -26,7 +26,7 @@ router.get('/' , async (req, res) => {
       const noticia = await Noticia.query().findById(noticiaId);;
       //formateando la fecha de creado de las noticias a una fecha mas entendible
       noticia.creado = convertirFecha(noticia.creado);
-      noticia.des  = noticia.des.substring(0, 60);
+      console.log(noticia)
       return res.render('noticia',{
          noticia
        });
