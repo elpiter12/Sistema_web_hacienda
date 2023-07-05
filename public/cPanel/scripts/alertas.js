@@ -1,5 +1,4 @@
-
-		document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
 			
 			// Obtener la cadena de consulta de la URL
 			const queryString = window.location.search;
@@ -12,6 +11,8 @@
 			const error = urlParams.get('error');
 			const sucess = urlParams.get('sucess');
 			if(sucess){
+				alert(mensaje);
+
 				Swal.fire({
 				  title: 'Noticia Eliminada!',
 				  text: 'Noticia borrada con exito!',

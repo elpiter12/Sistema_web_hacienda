@@ -6,11 +6,31 @@ const verificarToken = require('../../lib/verificarToken')
 
 router.get('/',verificarToken, async (req,res) => {
 	const nombre = req.user_admin.admin.nombre; //tomamos los datos del usuario admin
+	const {id,acction} = req.query;
+	if(id != undefined && acction != undefined){
+		//Empezamos a realizar el crud Aqui mismo
+		if(acction == 'eliminar'){
+			//emprendemos la accion de elminar
+			try{
+				const deleted  = await AdminUser.query().deleteById(id);
+				const allAdmins = await AdminUser.query();
+				return res.render('cPanel/modal',{title:"Eliminado", text: "El usuario has ido eliminado",icon: "success",redirectUrl:'/admins'})
+			}catch(e){
+				console.log(e)
+				return res.render('cPanel/admins?sucess=true&mensajes=No su puedo eliminar la cuenta de usaurio',{nombre,e,mensaje:"No se pudo eliminar esta cuenta de Usuario"})
+			}
+
+		}
+	}
+
 
 	//geting the data user admin 
 	const allAdmins = await AdminUser.query().select('id','nombre','correo','creado');
-	console.log(nombre);
-	res.render('cPanel/admins',{allAdmins , nombre});
+
+	return res.render('cPanel/admins',{allAdmins , nombre});
+
+
+
 })
 
 router.get('/new',verificarToken, async (req,res) => {
@@ -34,9 +54,4 @@ router.post('/new',verificarToken, async (req,res) => {
 
 	}
 })
-
-
-
-
-
 module.exports = router;

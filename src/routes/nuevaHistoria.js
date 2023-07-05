@@ -24,8 +24,15 @@ router.post('/', verificarToken ,upload.single('imagen'), async (req, res) => {
   const {titulo,des} = req.body;
   // Manejar los datos y la imagen aquí
   const img = req.file; // Objeto que contiene la información de la imagen cargada
-
-  const noticiaToSave = { titulo,des,img : req.file.filename}
+  let noticiaToSave = 0;
+  
+  if(img != undefined){
+    console.log("LA IMG ESTA LLEGANDO");
+    console.log(img);
+    noticiaToSave = { titulo,des,img : req.file.filename}
+  }else{
+    noticiaToSave = { titulo,des}
+  }
 
   try{
     const saveNoticia = await Noticia.query().insert(noticiaToSave)
